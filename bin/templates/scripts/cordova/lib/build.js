@@ -217,11 +217,15 @@ module.exports.run = function (buildOpts) {
                 // if exists, include "#include ./plugins/<pluginnanme>/build.xcconfig" line in build-extras.xcconfig
                 // It is okay to use sync file system calls here, this is just a build script.
                 
-                // let pluginDirectories = fs.readdirSync(path.join(__dirname))
-                // new Promise((resolve, reject) => {
-                //     fs.readdir()
-                // });
+                // Get <fs.Dirent[]> that represents the contents of the Plugins directory
+                let pluginDir = fs.readdirSync(path.join(projectPath, projectName, 'Plugins'), {withFileTypes: true});
 
+                // Loop thruogh pluginDir, do work on any content that is an directory
+                for(let i = 0, length = pluginDir.length; i < length; ++i) {
+                    if(pluginDir[i].isDirectory()) {
+                        events.emit('log', 'filename: ' + pluginDir[i].name);
+                    }
+                }
                 
                 Q.nfcall(fs.writeFile, path.join(__dirname, '..', 'build-extras.xcconfig'), extraConfig, 'utf-8').then(() => {
                     resolve();
