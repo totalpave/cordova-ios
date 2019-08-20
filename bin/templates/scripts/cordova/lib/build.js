@@ -222,8 +222,7 @@ module.exports.run = function (buildOpts) {
                 //     fs.readdir()
                 // });
 
-                events.emit('log', 'projectName <' + projectName + '>');
-
+                
                 Q.nfcall(fs.writeFile, path.join(__dirname, '..', 'build-extras.xcconfig'), extraConfig, 'utf-8').then(() => {
                     resolve();
                 }).catch(reject);
