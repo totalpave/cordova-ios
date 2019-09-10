@@ -211,11 +211,7 @@ module.exports.run = function (buildOpts) {
                 writeCodeSignStyle('Automatic');
             }
 
-            return new Promise((resolve, reject) => {
-                Q.nfcall(fs.writeFile, path.join(__dirname, '..', 'build-extras.xcconfig'), extraConfig, 'utf-8').then(() => {
-                    resolve();
-                }).catch(reject);
-            });
+            return Q.nfcall(fs.writeFile, path.join(__dirname, '..', 'build-extras.xcconfig'), extraConfig, 'utf-8');
         }).then(function () {
             var configuration = buildOpts.release ? 'Release' : 'Debug';
 
