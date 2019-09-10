@@ -212,17 +212,6 @@ module.exports.run = function (buildOpts) {
             }
 
             return new Promise((resolve, reject) => {
-                // TODO:
-                // list plugin directories, then check for existance of build.xcconfig in each plugin,
-                // if exists, include "#include ./plugins/<pluginnanme>/build.xcconfig" line in build-extras.xcconfig
-                // It is okay to use sync file system calls here, this is just a build script.
-                
-                // let pluginDirectories = fs.readdirSync(path.join(__dirname))
-                // new Promise((resolve, reject) => {
-                //     fs.readdir()
-                // });
-
-                
                 Q.nfcall(fs.writeFile, path.join(__dirname, '..', 'build-extras.xcconfig'), extraConfig, 'utf-8').then(() => {
                     resolve();
                 }).catch(reject);
