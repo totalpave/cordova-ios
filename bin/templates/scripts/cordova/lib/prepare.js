@@ -422,10 +422,12 @@ function mapSplashScreenResources (splashScreens, splashScreensDir) {
         { dest: 'Default-Landscape@2x~ipad.png', width: 2048, height: 1536 },
         { dest: 'Default-568h@2x~iphone.png', width: 640, height: 1136 },
         { dest: 'Default-667h.png', width: 750, height: 1334 },
+        { dest: 'Default-1792h.png', width: 828, height: 1792 },
         { dest: 'Default-736h.png', width: 1242, height: 2208 },
         { dest: 'Default-Landscape-736h.png', width: 2208, height: 1242 },
         { dest: 'Default-2436h.png', width: 1125, height: 2436 },
-        { dest: 'Default-Landscape-2436h.png', width: 2436, height: 1125 }
+        { dest: 'Default-Landscape-2436h.png', width: 2436, height: 1125 },
+        { dest: 'Default-2688h.png', width: 1242, height: 2688 }
     ];
 
     var pathMap = {};
