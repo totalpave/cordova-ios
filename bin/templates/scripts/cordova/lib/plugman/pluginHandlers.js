@@ -84,7 +84,7 @@ const handlers = {
             const src = obj.src;
             const custom = !!(obj.custom); // convert to boolean (if truthy/falsy)
             const embed = !!(obj.embed); // convert to boolean (if truthy/falsy)
-            const link = !embed; // either link or embed can be true, but not both. the other has to be false
+            const link = typeof obj.link === 'boolean' ? obj.link : !embed; // If explicitly set, use explicit values. Otherwise default to previous behaviour.
 
             if (!custom) {
                 const keepFrameworks = keep_these_frameworks;
