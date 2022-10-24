@@ -40,7 +40,7 @@
     "node": ">=10"
   },
   "dependencies": {
-    "cordova-common": "^4.0.2",
+    "cordova-common": "file:cordova-common-4.0.3-dev.tgz",
     "fs-extra": "^9.1.0",
     "ios-sim": "^8.0.2",
     "nopt": "^5.0.0",

@@ -84,7 +84,13 @@ const handlers = {
             const src = obj.src;
             const custom = !!(obj.custom); // convert to boolean (if truthy/falsy)
             const embed = !!(obj.embed); // convert to boolean (if truthy/falsy)
-            const link = typeof obj.link === 'boolean' ? obj.link : !embed; // If explicitly set, use explicit values. Otherwise default to previous behaviour.
+            let link;
+            // If obj.link is not explicitly set, default to pre-link attribute behaviour
+            if (obj.link === null || obj.link === undefined) {
+                link = !embed;
+            } else {
+                link = String(obj.link).toLowerCase() === 'true';
+            }
 
             if (!custom) {
                 const keepFrameworks = keep_these_frameworks;
